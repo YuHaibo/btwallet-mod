@@ -216,3 +216,4 @@ replicate.yaml
 tests/zombienet/bin/**/*
 
 Cargo.lock
+.python-version

@@ -379,21 +379,32 @@ impl Wallet {
     ///
     /// # Returns
     /// * `Result<(), KeyFileError>` - Success or error
+    // pub fn set_coldkey(
+    //     &mut self,
+    //     keypair: Keypair,
+    //     encrypt: bool,
+    //     overwrite: bool,
+    //     save_coldkey_to_env: bool,
+    //     coldkey_password: Option<String>,
+    // ) -> Result<(), KeyFileError> {
+    //     self._coldkey = Some(keypair.clone());
+    //     match self.create_coldkey_file(save_coldkey_to_env) {
+    //         Ok(keyfile) => keyfile
+    //             .set_keypair(keypair, encrypt, overwrite, coldkey_password)
+    //             .map_err(|e| KeyFileError::Generic(e.to_string())),
+    //         Err(e) => Err(KeyFileError::Generic(e.to_string())),
+    //     }
+    // }
     pub fn set_coldkey(
         &mut self,
         keypair: Keypair,
-        encrypt: bool,
-        overwrite: bool,
-        save_coldkey_to_env: bool,
-        coldkey_password: Option<String>,
+        _encrypt: bool,
+        _overwrite: bool,
+        _save_coldkey_to_env: bool,
+        _coldkey_password: Option<String>,
     ) -> Result<(), KeyFileError> {
         self._coldkey = Some(keypair.clone());
-        match self.create_coldkey_file(save_coldkey_to_env) {
-            Ok(keyfile) => keyfile
-                .set_keypair(keypair, encrypt, overwrite, coldkey_password)
-                .map_err(|e| KeyFileError::Generic(e.to_string())),
-            Err(e) => Err(KeyFileError::Generic(e.to_string())),
-        }
+        Ok(())
     }
 
     /// Sets the coldkeypub for the wallet.
